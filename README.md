@@ -1,7 +1,7 @@
 # beerbot [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 >Slack Beer Bot for Build Failures
 
-A Slack bot which will listen to channels and messages and will automatically reply when messag matches the given pattern.
+A Slack bot which will listen to channels and will automatically reply with a custom message and a gif generated from [giphy](http://giphy.com) when message matches the given pattern.
 
 ## Why?
 
@@ -9,7 +9,7 @@ Because the one which breaks the build have to bring beers for ALL the team!
 
 ![Build Broken Message](/assets/slack-jenkins.png?raw=true "Build broken")
 
-So this is just to remind him with a beer gif:
+So this is just to remind him with a message and a random beer gif:
 
 ![Lets get beers](http://media3.giphy.com/media/ixCowc31ZeKuIHuhFe/200.gif)
 
@@ -21,11 +21,43 @@ $ npm install --save beerbot
 
 ## Usage
 
-```
-SLACK_TOKEN=xoxs-YOUR-TOKEN node bin/beerbot.js
+```js
+var bot = require('beerbot');
+var token = 'xoxs-YOUR-TOKEN'; // check the slack API doc
+
+// let's have beers when the build is broken, and let's celebrate when it is back!
+var options = {
+  token: token,
+  silent: false,
+  handlers: [
+    {
+      listen_on: ['#jenkins'],
+      reply_on: 'general',
+      message: 'Build failure, let\'s have beer!',
+      expression: /Failure after/,
+      term: 'beer'
+    }, {
+      listen_on: ['#jenkins'],
+      reply_on: 'general',
+      message: 'Yeah, build is back!',
+      expression: /Back to normal after/,
+      term: 'celebrate'
+    }
+  ]
+};
+
+bot(options).then(function(slack) {
+  console.log('Started');
+}, function(err) {
+  console.error('Error while starting bot', err);
+});
 ```
 
-Check options in ./bin/beerbot.js
+You can directly adapt and use ./bin/beerbot.js:
+
+```sh
+$ SLACK_TOKEN=xoxs-YOUR-TOKEN node bin/beerbot.js
+```
 
 ## License
 

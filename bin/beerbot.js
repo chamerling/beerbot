@@ -6,10 +6,21 @@ var token = process.env.SLACK_TOKEN;
 var options = {
   token: token,
   silent: false,
-  listen_on: ['#jenkins'],
-  reply_on: 'general',
-  expression: /Failure after/,
-  term: 'beer'
+  handlers: [
+    {
+      listen_on: ['#jenkins'],
+      reply_on: 'general',
+      message: 'Build failure, let\'s have beer!',
+      expression: /Failure after/,
+      term: 'beer'
+    }, {
+      listen_on: ['#jenkins'],
+      reply_on: 'general',
+      message: 'Yeah, build is back!',
+      expression: /Back to normal after/,
+      term: 'celebrate'
+    }
+  ]
 };
 
 bot(options).then(function() {
