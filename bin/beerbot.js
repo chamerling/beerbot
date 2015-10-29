@@ -9,13 +9,13 @@ var options = {
   handlers: [
     {
       listen_on: ['#jenkins'],
-      reply_on: 'general',
+      reply_on: '#general',
       message: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
     }, {
       listen_on: ['#jenkins'],
-      reply_on: 'general',
+      reply_on: '#general',
       message: 'Yeah, build is back!',
       expression: /Back to normal after/,
       term: 'celebrate'
