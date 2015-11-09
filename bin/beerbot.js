@@ -11,14 +11,14 @@ var options = {
   },
   listeners: [
     {
-      type: 'giphy',
+      name: 'giphy',
       listen_on: ['chamerling-tests'],
       reply_on: 'chamerling-tests',
       response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
     }, {
-      type: 'giphy',
+      name: 'giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
       response: 'Yeah, build is back!',
@@ -30,7 +30,6 @@ var options = {
 
 bot(options).then(function() {
   console.log('Started');
-  // TODO disconnect
 }, function(err) {
   console.error('Error while starting bot', err);
 });

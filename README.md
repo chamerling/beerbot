@@ -34,14 +34,14 @@ var options = {
   },
   listeners: [
     {
-      type: 'giphy',
+      name: 'giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
       response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
     }, {
-      type: 'giphy',
+      name: 'giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
       response: 'Yeah, build is back!',
