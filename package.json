@@ -33,6 +33,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "beerbot-giphy": "chamerling/beerbot-giphy",
     "q": "^1.4.1",
     "request": "^2.65.0",
     "slack-client": "^1.4.1",

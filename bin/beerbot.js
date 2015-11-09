@@ -11,14 +11,14 @@ var options = {
   },
   listeners: [
     {
-      name: 'giphy',
+      name: 'beerbot-giphy',
       listen_on: ['chamerling-tests'],
       reply_on: 'chamerling-tests',
       response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
     }, {
-      name: 'giphy',
+      name: 'beerbot-giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
       response: 'Yeah, build is back!',
