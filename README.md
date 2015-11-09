@@ -22,7 +22,7 @@ $ npm install --save beerbot
 ## Usage
 
 ```js
-var bot = require('beerbot');
+var BeerBot = require('beerbot');
 var token = 'xoxs-YOUR-TOKEN'; // check the slack API doc
 
 // let's have beers when the build is broken, and let's celebrate when it is back!
@@ -51,11 +51,16 @@ var options = {
   ]
 };
 
-bot(options).then(function(bot) {
-  console.log('Started');
-}, function(err) {
+var bot = new BeerBot(options);
+bot.on('connected', function() {
+  console.log('Bot is started');
+});
+
+bot.on('error', function(err) {
   console.error('Error while starting bot', err);
 });
+
+bot.start();
 ```
 
 You can directly adapt and use ./bin/beerbot.js:

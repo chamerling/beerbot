@@ -1,6 +1,6 @@
 'use strict';
 
-var bot = require('../lib/index');
+var BeerBot = require('../lib/index');
 var token = process.env.SLACK_TOKEN;
 
 var options = {
@@ -28,8 +28,13 @@ var options = {
   ]
 };
 
-bot(options).then(function() {
-  console.log('Started');
-}, function(err) {
+var bot = new BeerBot(options);
+bot.on('connected', function() {
+  console.log('Bot is started');
+});
+
+bot.on('error', function(err) {
   console.error('Error while starting bot', err);
 });
+
+bot.start();
