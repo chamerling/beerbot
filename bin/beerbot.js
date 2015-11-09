@@ -11,14 +11,14 @@ var options = {
       type: 'giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
-      message: 'Build failure, let\'s have beer!',
+      response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
     }, {
       type: 'giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
-      message: 'Yeah, build is back!',
+      response: 'Yeah, build is back!',
       expression: /Back to normal after/,
       term: 'celebrate'
     }
