@@ -6,6 +6,9 @@ var token = process.env.SLACK_TOKEN;
 var options = {
   token: token,
   silent: false,
+  logger: {
+    level: 'debug'
+  },
   listeners: [
     {
       type: 'giphy',

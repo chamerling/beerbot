@@ -29,6 +29,9 @@ var token = 'xoxs-YOUR-TOKEN'; // check the slack API doc
 var options = {
   token: token,
   silent: false,
+  logger: {
+    level: 'info'
+  },
   listeners: [
     {
       type: 'giphy',
