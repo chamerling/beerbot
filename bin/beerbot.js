@@ -9,8 +9,8 @@ var options = {
   listeners: [
     {
       type: 'giphy',
-      listen_on: ['#jenkins'],
-      reply_on: '#general',
+      listen_on: ['chamerling-tests'],
+      reply_on: 'chamerling-tests',
       response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
