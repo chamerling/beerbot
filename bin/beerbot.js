@@ -12,8 +12,8 @@ var options = {
   listeners: [
     {
       name: 'beerbot-giphy',
-      listen_on: ['chamerling-tests'],
-      reply_on: 'chamerling-tests',
+      listen_on: ['#jenkins'],
+      reply_on: '#general',
       response: 'Build failure, let\'s have beer!',
       expression: /Failure after/,
       term: 'beer'
