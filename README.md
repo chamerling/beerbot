@@ -21,6 +21,8 @@ $ npm install --save beerbot
 
 ## Usage
 
+### From configuration
+
 ```js
 var BeerBot = require('beerbot');
 var token = 'xoxs-YOUR-TOKEN'; // check the slack API doc
@@ -67,6 +69,47 @@ You can directly adapt and use ./bin/beerbot.js:
 
 ```sh
 $ SLACK_TOKEN=xoxs-YOUR-TOKEN node bin/beerbot.js
+```
+
+### From the BeerBot API
+
+```js
+'use strict';
+
+var BeerBot = require('beerbot');
+var q = require('q');
+
+var options = {
+  token: 'xoxs-YOUR-TOKEN',
+  silent: false,
+  logger: {
+    level: 'debug'
+  }
+};
+
+var yoloOptions = {
+  listen_on: ['#general'],
+  reply_on: '#general',
+  response: '... ',
+  expression: /YOLO/
+};
+
+var bot = new BeerBot(options);
+var yoloListener = bot.createListener('yolo', function() {
+  return q.resolve('YOLO!!!!!');
+}, yoloOptions);
+
+bot.addListener(yoloListener);
+
+bot.on('connected', function() {
+  console.log('Yolo Bot is started');
+});
+
+bot.on('error', function(err) {
+  console.error('Error while starting bot', err);
+});
+
+bot.start();
 ```
 
 ## License
