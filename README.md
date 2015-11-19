@@ -112,6 +112,19 @@ bot.on('error', function(err) {
 bot.start();
 ```
 
+## API
+
+- Beerbot provides [q](https://github.com/kriskowal/q) and [request](https://github.com/request/request) so they can be use in plugins without requiring them.
+
+``` javascript
+var bot = new BeerBot(options);
+bot.request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage.
+  }
+});
+```
+
 ## License
 
 MIT © [Christophe Hamerling](http://chamerling.github.io)
