@@ -94,10 +94,19 @@ var yoloOptions = {
   match: /YOLO/
 };
 
+var handler = function(bot, options) {
+  return {
+    mention: function(message) {
+      return bot.q.resolve('You mentioned me!');
+    },
+    receive: function(message) {
+      return bot.q.resolve('YOLO');
+    }
+  };
+};
+
 var bot = new BeerBot(options);
-bot.listen('yolo', function() {
-  return bot.q.resolve('YOLO');
-}, yoloOptions);
+bot.listen('yolo', handler, yoloOptions);
 
 bot.on('connected', function() {
   console.log('Yolo Bot is started');

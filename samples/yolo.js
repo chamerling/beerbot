@@ -3,7 +3,7 @@
 var BeerBot = require('../lib');
 
 var options = {
-  token: 'xoxs-YOUR-TOKEN',
+  token: 'xoxp-YOUR-TOKEN', // check https://api.slack.com/web
   silent: false,
   logger: {
     level: 'debug'
@@ -29,11 +29,22 @@ var yalaOptions = {
 var bot = new BeerBot(options);
 
 bot.listen('yolo', function() {
-  return bot.q.resolve('YOLO');
+  return {
+    receive: function() {
+      return bot.q.resolve('YOLO');
+    }
+  };
 }, yoloOptions);
 
 bot.listen('yala', function() {
-  return bot.q.resolve('YALA');
+  return {
+    receive: function() {
+      return bot.q.resolve('YALA');
+    },
+    mention: function() {
+      return bot.q.resolve('You mentioned me!');
+    }
+  };
 }, yalaOptions);
 
 bot.on('connected', function() {
