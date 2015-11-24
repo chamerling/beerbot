@@ -30,11 +30,11 @@ var options = {
 
 var bot = new BeerBot(options);
 bot.on('connected', function() {
-  console.log('Bot is started');
+  bot.logger.info('Beerbot is started');
 });
 
 bot.on('error', function(err) {
-  console.error('Error while starting bot', err);
+  bot.logger.error('Error while starting beerbot', err);
 });
 
 bot.start();

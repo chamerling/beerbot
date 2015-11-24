@@ -95,11 +95,9 @@ var yoloOptions = {
 };
 
 var bot = new BeerBot(options);
-var yoloListener = bot.createListener('yolo', function() {
-  return q.resolve('YOLO!!!!!');
+bot.listen('yolo', function() {
+  return bot.q.resolve('YOLO');
 }, yoloOptions);
-
-bot.addListener(yoloListener);
 
 bot.on('connected', function() {
   console.log('Yolo Bot is started');
