@@ -14,13 +14,27 @@ var yoloOptions = {
   listen_on: ['chamerling-tests'],
   reply_on: 'chamerling-tests',
   response: 'You said: ',
-  expression: /YOLO/
+  match: /YOLO/
+};
+
+var yalaOptions = {
+  listen_on: ['chamerling-tests'],
+  reply_on: 'chamerling-tests',
+  response: 'You said: ',
+  match: function(message) {
+    return message.match(/YALA/);
+  }
 };
 
 var bot = new BeerBot(options);
+
 bot.listen('yolo', function() {
   return bot.q.resolve('YOLO');
 }, yoloOptions);
+
+bot.listen('yala', function() {
+  return bot.q.resolve('YALA');
+}, yalaOptions);
 
 bot.on('connected', function() {
   console.log('Yolo Bot is started');
