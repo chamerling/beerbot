@@ -15,6 +15,11 @@ So this is just to remind him with a message and a random beer gif:
 
 The Beerbot was originally created for fun, to pollute Slack channels with funky gifs. But now, it can also be used to create integrations with Slack without having to consume official Slack integration limits.
 
+## Default Features
+
+- Listen to CI build failures on a channel and send a random beer gif to a channel
+- Create [Hublin](https://hubl.in) video conference: '@bot !hublin' will create a conference on Hubl.in with the current channel name.
+
 ## Install
 
 ```sh
