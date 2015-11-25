@@ -1,8 +1,8 @@
 {
   "name": "beerbot",
-  "version": "0.2.2",
-  "description": "Slack Beer Bot for Build Failures",
-  "homepage": "",
+  "version": "0.3.0",
+  "description": "BeerBot is an extensible and real time bot for Slack.com",
+  "homepage": "https://github.com/chamerling/beerbot",
   "author": {
     "name": "Christophe Hamerling",
     "email": "chamerling@linagora.com",
