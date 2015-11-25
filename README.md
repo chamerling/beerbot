@@ -13,6 +13,8 @@ So this is just to remind him with a message and a random beer gif:
 
 ![Lets get beers](http://media3.giphy.com/media/ixCowc31ZeKuIHuhFe/200.gif)
 
+The Beerbot was originally created for fun, to pollute Slack channels with funky gifs. But now, it can also be used to create integrations with Slack without having to consume official Slack integration limits.
+
 ## Install
 
 ```sh

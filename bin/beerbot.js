@@ -11,13 +11,19 @@ var options = {
   },
   listeners: [
     {
+      name: 'beerbot-hublin',
+      match: /!hublin/,
+      response: 'Your conference is ready at '
+    },
+    {
       name: 'beerbot-giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
       response: 'Build failure, let\'s have beer!',
       match: /Failure after/,
       term: 'beer'
-    }, {
+    },
+    {
       name: 'beerbot-giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
