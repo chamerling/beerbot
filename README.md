@@ -41,7 +41,7 @@ var options = {
   logger: {
     level: 'info'
   },
-  listeners: [
+  plugins: [
     {
       name: 'beerbot-giphy',
       listen_on: ['#jenkins'],
@@ -84,10 +84,8 @@ $ SLACK_TOKEN=xoxs-YOUR-TOKEN node bin/beerbot.js
 'use strict';
 
 var BeerBot = require('beerbot');
-var q = require('q');
-
 var options = {
-  token: 'xoxs-YOUR-TOKEN',
+  token: 'xoxp-YOUR-TOKEN', // check https://api.slack.com/web
   silent: false,
   logger: {
     level: 'debug'
@@ -97,23 +95,14 @@ var options = {
 var yoloOptions = {
   listen_on: ['#general'],
   reply_on: '#general',
-  response: '... ',
-  match: /YOLO/
-};
-
-var handler = function(bot, options) {
-  return {
-    mention: function(message) {
-      return bot.q.resolve('You mentioned me!');
-    },
-    receive: function(message) {
-      return bot.q.resolve('YOLO');
-    }
-  };
+  response: 'You said: '
 };
 
 var bot = new BeerBot(options);
-bot.listen('yolo', handler, yoloOptions);
+
+bot.listen(/YOLO/, yoloOptions, function() {
+  return bot.q.resolve('YOLO');
+});
 
 bot.on('connected', function() {
   console.log('Yolo Bot is started');
@@ -141,7 +130,7 @@ bot.request('http://www.google.com', function (error, response, body) {
 });
 ```
 
-### Listener
+### Default Listener
 
 #### Options
 

@@ -9,11 +9,10 @@ var options = {
   logger: {
     level: 'debug'
   },
-  listeners: [
+  plugins: [
     {
       name: 'beerbot-hublin',
-      match: /!hublin/,
-      response: 'Your conference is ready at '
+      response: 'Your Hubl.in conference is ready at '
     },
     {
       name: 'beerbot-giphy',

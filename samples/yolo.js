@@ -13,39 +13,14 @@ var options = {
 var yoloOptions = {
   listen_on: ['chamerling-tests'],
   reply_on: 'chamerling-tests',
-  response: 'You said: ',
-  match: /YOLO/
-};
-
-var yalaOptions = {
-  listen_on: ['chamerling-tests'],
-  reply_on: 'chamerling-tests',
-  response: 'You said: ',
-  match: function(message) {
-    return message.match(/YALA/);
-  }
+  response: 'You said: '
 };
 
 var bot = new BeerBot(options);
 
-bot.listen('yolo', function() {
-  return {
-    receive: function() {
-      return bot.q.resolve('YOLO');
-    }
-  };
-}, yoloOptions);
-
-bot.listen('yala', function() {
-  return {
-    receive: function() {
-      return bot.q.resolve('YALA');
-    },
-    mention: function() {
-      return bot.q.resolve('You mentioned me!');
-    }
-  };
-}, yalaOptions);
+bot.listen(/YOLO/, yoloOptions, function() {
+  return bot.q.resolve('YOLO');
+});
 
 bot.on('connected', function() {
   console.log('Yolo Bot is started');
