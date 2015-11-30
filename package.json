@@ -19,12 +19,14 @@
   ],
   "repository": "chamerling/beerbot",
   "devDependencies": {
+    "chai": "^3.4.1",
     "gulp": "^3.6.0",
     "gulp-eslint": "^1.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.9.0",
     "gulp-mocha": "^2.0.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-plumber": "^1.0.0",
+    "mockery": "^1.4.0"
   },
   "scripts": {
     "test": "gulp"

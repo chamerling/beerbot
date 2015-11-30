@@ -99,7 +99,6 @@
     "no-return-assign": 2,
     "no-script-url": 2,
     "no-sequences": 2,
-    "no-unused-expressions": 2,
     "yoda": 2,
     "no-shadow": 2,
     "no-shadow-restricted-names": 2,
