@@ -29,6 +29,12 @@ var options = {
       response: 'Yeah, build is back!',
       match: /Back to normal after/,
       term: 'celebrate'
+    },
+    {
+      name: 'beerbot-giphy',
+      response: 'Beer? Beer!',
+      match: /beer/,
+      term: 'beer'
     }
   ]
 };
