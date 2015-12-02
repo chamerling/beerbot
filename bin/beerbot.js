@@ -1,6 +1,6 @@
 'use strict';
 
-var BeerBot = require('../lib/index');
+var BeerBot = require('../lib/beerbot');
 var token = process.env.SLACK_TOKEN;
 
 var options = {
@@ -32,7 +32,7 @@ var options = {
     },
     {
       name: 'beerbot-giphy',
-      response: 'Beer? Beer!',
+      response: ':beer: Beer? Beer! :beer:',
       match: /beer/,
       term: 'beer'
     }

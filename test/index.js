@@ -43,46 +43,46 @@ describe('beerbot', function() {
     });
 
     it('should return false when message is undefined', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       expect(bot.isMention()).to.be.false;
     });
 
     it('should return false when message.text is undefined', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       expect(bot.isMention({})).to.be.false;
     });
 
     it('should return false when message.text is empty', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       expect(bot.isMention({text: ''})).to.be.false;
     });
 
     it('should return true when message.text contains a bot id', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       bot.slack.emit('open');
       expect(bot.isMention({text: 'This is a text with a mention <@' + user.id + '>'})).to.be.true;
     });
 
     it('should return true when message.text starts with the bot user id', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       bot.slack.emit('open');
       expect(bot.isMention({text: '<@' + user.id + '> hey!!!'})).to.be.true;
     });
 
     it('should return false when message.text does not contains the bot user id', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       bot.slack.emit('open');
       expect(bot.isMention({text: '<@000> hey!!!'})).to.be.false;
     });
 
     it('should return false when message.text does not contains any user', function() {
-      var Beerbot = require('../lib');
+      var Beerbot = require('../lib/beerbot');
       var bot = new Beerbot({token: '123'});
       bot.slack.emit('open');
       expect(bot.isMention({text: 'hey!!!'})).to.be.false;

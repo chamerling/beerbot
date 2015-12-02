@@ -11,15 +11,14 @@ var options = {
 };
 
 var yoloOptions = {
-  listen_on: ['chamerling-tests'],
-  reply_on: 'chamerling-tests',
+  listen_on: ['#general'],
   response: 'You said: '
 };
 
 var bot = new BeerBot(options);
 
-bot.listen(/YOLO/, yoloOptions, function() {
-  return bot.q.resolve('YOLO');
+bot.listen(/YOLO/, yoloOptions, function(response) {
+  response.sendText('YOLO');
 });
 
 bot.on('connected', function() {
