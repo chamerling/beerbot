@@ -11,9 +11,6 @@
   "files": [
     "lib"
   ],
-  "bin": {
-    "beerbot": "./bin/beerbot.js"
-  },
   "main": "lib/beerbot.js",
   "keywords": [
     "slack",
@@ -36,8 +33,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "beerbot-giphy": "chamerling/beerbot-giphy",
-    "beerbot-hublin": "chamerling/beerbot-hublin",
     "q": "^1.4.1",
     "request": "^2.65.0",
     "slack-client": "^1.4.1",

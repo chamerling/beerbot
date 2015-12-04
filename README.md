@@ -15,10 +15,7 @@ So this is just to remind him with a message and a random beer gif:
 
 The Beerbot was originally created for fun, to pollute Slack channels with funky gifs. But now, it can also be used to create integrations with Slack without having to consume official Slack integration limits.
 
-## Default Features
-
-- Listen to CI build failures on a channel and send a random beer gif to a channel
-- Create [Hublin](https://hubl.in) video conference: '@bot !hublin' will create a conference on Hubl.in with the current channel name.
+A BeerBot CLI is available on [chamerling/beerbot-cli](https://github.com/chamerling/beerbot-cli) so you can install and directly use it.
 
 ## Install
 
@@ -43,6 +40,7 @@ var options = {
   },
   plugins: [
     {
+      // name of the beerbot plugin as npm module
       name: 'beerbot-giphy',
       listen_on: ['#jenkins'],
       reply_on: '#general',
@@ -70,12 +68,6 @@ bot.on('error', function(err) {
 });
 
 bot.start();
-```
-
-You can directly adapt and use ./bin/beerbot.js:
-
-```sh
-$ SLACK_TOKEN=xoxs-YOUR-TOKEN node bin/beerbot.js
 ```
 
 ### From the BeerBot API
